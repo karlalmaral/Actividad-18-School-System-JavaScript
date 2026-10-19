@@ -1,0 +1,319 @@
+/* =========================================
+   Actividad 17 - School System
+   Paleta: azul, blanco y gris
+   ========================================= */
+
+/* ---------- Variables ---------- */
+:root {
+  --azul: #1e6fd9;
+  --azul-oscuro: #1557b0;
+  --azul-claro: #eaf2fc;
+  --blanco: #ffffff;
+  --gris-fondo: #f4f6f9;
+  --gris-borde: #e0e5ec;
+  --gris-texto: #5b6472;
+  --gris-oscuro: #1f2937;
+  --texto-oscuro: #2b3440;
+  --sombra: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --radio: 8px;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--gris-fondo);
+  color: var(--texto-oscuro);
+  line-height: 1.5;
+}
+
+/* ---------- Encabezado ---------- */
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+/* ---------- Navegación superior ---------- */
+nav {
+  background: var(--azul-oscuro);
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 0;
+  padding: 8px 16px;
+  list-style: none;
+}
+
+nav a {
+  display: block;
+  padding: 8px 12px;
+  color: var(--blanco);
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+nav a:hover {
+  background: var(--azul);
+}
+
+/* ---------- Layout principal (Grid) ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+/* ---------- Menú lateral ---------- */
+.sidebar {
+  height: fit-content;
+  padding: 16px;
+  background: var(--gris-oscuro);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.sidebar h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  color: var(--blanco);
+}
+
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar a {
+  display: block;
+  padding: 10px;
+  color: var(--blanco);
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.sidebar a:hover {
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+/* ---------- Contenido: secciones ---------- */
+.content section:not(.tarjetas) {
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.content h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: var(--azul);
+}
+
+/* ---------- Formulario ---------- */
+/* Los <br> originales del HTML aportan el espacio entre campos */
+#form-alumno {
+  max-width: 460px;
+}
+
+#form-alumno label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+#form-alumno input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+}
+
+#form-alumno input:focus {
+  outline: none;
+  border-color: var(--azul);
+}
+
+/* ---------- Botones ---------- */
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button + button {
+  margin-left: 8px;
+}
+
+button[type="submit"] {
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+button[type="submit"]:hover {
+  background: var(--azul-oscuro);
+}
+
+#btn-limpiar {
+  background: var(--gris-texto);
+  color: var(--blanco);
+}
+
+#btn-limpiar:hover {
+  background: var(--texto-oscuro);
+}
+
+/* ---------- Tabla ---------- */
+#tabla-alumnos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tabla-alumnos th,
+#tabla-alumnos td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--gris-borde);
+}
+
+#tabla-alumnos thead {
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+#tabla-alumnos tbody tr:hover {
+  background: var(--azul-claro);
+}
+
+/* ---------- Tarjetas (resumen) ---------- */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  padding: 16px;
+  text-align: center;
+  background: var(--blanco);
+  border-top: 4px solid var(--azul);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: var(--azul);
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  margin-top: 32px;
+  padding: 14px;
+  text-align: center;
+  background: var(--azul-oscuro);
+  color: var(--blanco);
+}
+
+footer p {
+  margin: 0;
+}
+
+/* ---------- Responsive: pantallas < 768px ---------- */
+@media (max-width: 767px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   Actividad 18 - Estilos añadidos (JavaScript)
+   ========================================= */
+
+/* ---------- Mensajes de éxito / error ---------- */
+#mensaje {
+  display: none;
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+#mensaje.exito {
+  display: block;
+  background: #e6f7ec;
+  color: #14713d;
+  border: 1px solid #9bd8b4;
+}
+
+#mensaje.error {
+  display: block;
+  background: #fdecec;
+  color: #a02020;
+  border: 1px solid #f2b4b4;
+}
+
+/* ---------- Botones nuevos de la Actividad 18 ---------- */
+#btn-promedio {
+  background: var(--azul-claro);
+  color: var(--azul-oscuro);
+}
+
+#btn-promedio:hover {
+  background: var(--azul);
+  color: var(--blanco);
+}
+
+#btn-mensaje {
+  background: var(--blanco);
+  color: var(--azul);
+  border: 1px solid var(--azul);
+}
+
+#btn-mensaje:hover {
+  background: var(--azul-claro);
+}
